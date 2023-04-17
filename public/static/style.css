@@ -1,0 +1,125 @@
+
+
+button{
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-color: #4CAF50;
+    color: #4CAF50;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+caption{
+    font-size: 28px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+input[type=text] {
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+
+  /* CSS for the input field on focus */
+  input[type=text]:focus {
+    border: 2px solid #4CAF50;
+  }
+
+.viewTableAndMol {
+    display: block;
+    position: relative;
+    width: auto;
+    height: auto;
+    border:5px #4CAF50;
+    
+}
+
+#molTable, #molView{
+    display: inline-block;
+    
+}
+
+#moltitle{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+#displayMol{
+    display: block;
+    position: relative;
+    border: 1px solid black;
+}
+
+#molView{
+    width: 50px;
+    height: 50px;
+    padding: 25px;
+}
+
+#upload {
+    display: none;
+}
+
+#view {
+    display: none;
+}
+
+#element{
+    display: none;
+}

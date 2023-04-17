@@ -1,0 +1,7 @@
+# is id
+defined in CSS
+
+. is class
+
+A class name can be used by multiple HTML elements, 
+while an id name must only be used by one HTML element within the page:

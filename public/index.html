@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8">
+    <title>2750 A4 Jesse Varkul</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" type="image/x-icon" href="static/favicon_io/favicon.ico">
+    <script src="static/script.js"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style src="static/style.css"></style>
+
+</head>
+
+
+
+
+
+<body>
+    <h1>2750 A4 Jesse Varkul</h1>
+    <button onclick="viewElement()">Elements</button>
+    <button onclick="viewUpload()">Upload SDF </button>
+    <button onclick="viewSDF()">View Molecules </button>
+    <br />
+
+    <div id="element">
+        <h2>Add Element</h2>
+        <form action="/add_element" method="post">
+            <label for="elno">Element Number</label>
+            <input type="text" name="elno" id="elno" placeholder="Enter element number">
+            <br /><br />
+
+            <label for="elcode">Element Code</label>
+            <input type="text" name="elcode" id="elcode" placeholder="Enter element code">
+            <br /><br />
+
+            <label for="elname">Element Name</label>
+            <input type="text" name="elname" id="elname" placeholder="Enter element name">
+            <br /><br />
+
+            <label for="col1">Colour 1</label>
+            <input name="col1" type="color" id="col1">
+            <br /><br />
+
+            <label for="col2">Colour 2</label>
+            <input name="col2" type="color" id="col2">
+            <br /><br />
+
+            <label for="col3">Colour 3</label>
+            <input name="col3" type="color" id="col3">
+            <br /><br />
+
+            <label for="rad">Radius</label>
+            <input type="text" name="rad" id="rad" placeholder="Enter radius">
+            <br /><br />
+            <button onclick="add_element(event)" type="submit">Submit</button>
+            <!-- <input type="submit" value="Add Element" name="submitElement"> -->
+        </form>
+
+        <br /><br />
+
+        <table id="elementTable">
+            <caption>Element List</caption>
+            <tr>
+                <th>Element NO</th>
+                <th>Element Code</th>
+                <th>Element Name</th>
+                <th>Colour 1</th>
+                <th>Colour 2</th>
+                <th>Colour 3</th>
+                <th>Radius</th>
+                <th>Remove</th>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="upload">
+        <div id="uploadForm">
+
+            
+            <h2>SDF File Upload</h2>
+            <form action="/upload" target="_self" method="post" enctype="multipart/form-data">
+                
+                <input type="text" name="name" id="name" placeholder="Enter name">
+                <br /><br />
+                <input type="file" name="fileToUpload" id="fileToUpload" title="filename">
+                <br /><br />
+                <button type="submit" onclick="upload_file(event)">Submit</button>
+                <!-- <input type="submit" value="Upload File" name="submitSDF"> -->
+            </form>
+        </div>
+            
+        <p id="loading">Loading data...</p>
+
+    </div>
+
+
+    <div id="view">
+        <h2>View Molecules</h2>
+
+        <div class="viewTableAndMol">
+
+
+            <table id="molTable">
+                <caption>Molecule List</caption>
+                <tr>
+                    <th>Molecule ID</th>
+                    <th>Molecule Name</th>
+                    <th>View Molecule</th>
+                </tr>
+
+            </table>
+            <div id="displayMol">
+                <h2 id="moltitle">Molecule Viewer</h2>
+                <div id="molView"></div>
+
+
+            </div>
+
+            <div class="rotate">
+                <!-- send rotate the rotations and store the rotations in the database -->
+                <form id="rotateForm" action="/submit" method="POST">
+                    <label for="rot">Rotate Molecule</label>
+                    <br />
+                    <select id="selectRotation">
+                        <option value="x">X</option>
+                        <option value="y">Y</option>
+                        <option value="z">Z</option>
+                    </select>
+                    <input type="text" name="rot" id="rot" placeholder="Enter rotation value">
+                    <br /><br />
+                    <button onclick="rotateSVG(event)" type="submit" >Submit</button>
+                    <!-- <input id="submitRotation" type="submit" value="Submit" name="submitRot"> -->
+            </div>
+
+            
+        </div>
+
+    </div>
+</body>
+
+</html>

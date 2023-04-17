@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Displaying Database in Table</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.ajax({
+				url: 'data.php', // replace this with the URL of your server-side script that retrieves data from the database
+				type: 'get',
+				dataType: 'json',
+				success: function(response){
+					var len = response.length;
+					var txt = "";
+					if(len > 0){
+						for(var i=0;i<len;i++){
+							if(response[i].name && response[i].email){
+								txt += "<tr><td>"+response[i].name+"</td><td>"+response[i].email+"</td></tr>";
+							}
+						}
+						if(txt != ""){
+							$("#myTable").append(txt);
+						}
+					}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<table id="myTable" border="1">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	</table>
+</body>
+</html>
